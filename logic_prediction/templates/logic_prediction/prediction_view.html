@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+	{% load static %} 
+  	{% load bootstrap5 %}
+  	{% bootstrap_css %}
+  	{% bootstrap_javascript %}
+</head>
+<body>
+<div class="mx-0 mx-sm-auto">
+  <div class="card">
+    <div class="card-header bg-primary">
+      <h5 class="card-title text-white mt-2" id="exampleModalLabel">Credit score prediction</h5>
+    </div>
+    <div class="modal-body">
+      <div class="text-center">
+        <i class="far fa-file-alt fa-4x mb-3 text-primary"></i>
+        <p>
+          <strong>Put your answers in the form below</strong>
+        </p>
+        <p>
+          This questionnaire should not be used
+          <strong>This is just for testing</strong>
+        </p>
+      </div>
+
+      <hr />
+
+      <form action="" method="POST">
+        <p class="text-center"><strong>Your choise:</strong></p>
+        {% csrf_token %}
+        <div class="form-check mb-2">
+        	<p>1) How old are you?</p>
+          	{{ form1.choice }}
+        </div>
+        <div class="form-check mb-2">
+        	<p>2) What is your gender? </p>
+          	{{ form2.choice }}
+        </div>
+        <div class="form-check mb-2">
+        	<p>3) What is your annual income?</p>
+          	{{ form3.choice }}
+        </div>
+        <div class="form-check mb-2">
+        	<p>4) What is your highest level of education?</p>
+          	{{ form4.choice }}
+        </div>
+        <div class="form-check mb-2">
+        	<p>5) How many children do you have? </p>
+          	{{ form5.choice }}
+        </div>
+        <div class="form-check mb-2">
+        	<p>6) Do you own or rent your home?</p>
+          	{{ form6.choice }}
+        </div>
+        <div class="card-footer text-end">
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+      </form>
+    </div>
+    {% if messages %}
+<div class="alert alert-{{ category }} alert-dismissible fade show" role="alert">
+	<h2>Your result is:</h2>
+	{% for message in messages %}
+		{% if message == 0 %}
+			<p>No</p>
+		{% else %}
+			<p>Yes</p>
+		{% endif %}
+	{% endfor %}
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+	<span aria-hidden="true"></span>
+	</button>
+</div>
+{% endif %}
+  </div>
+</div>
+</body>
+</html>

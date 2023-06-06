@@ -1,0 +1,6 @@
+*.pyc
+*~
+__pycache__
+venv
+main_prediction/secret_settings.env
+db.sqlite3

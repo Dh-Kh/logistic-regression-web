@@ -34,3 +34,5 @@ def make_user_prediction(user_input: list):
         return prediction
     except ValueError:
         pass
+    
+print(make_user_prediction([1, 1, 1, 0, 0, 1]))
